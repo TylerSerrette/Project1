@@ -16,6 +16,7 @@ import MailIcon from "@mui/icons-material/Mail";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import MoreIcon from "@mui/icons-material/MoreVert";
 import AvatarDropDownMenu from "./GroupedIcons/Avatar/AvatarDropDownMenu/AvatarDropDownMenu";
+import GroupedIcons from "./GroupedIcons/GroupedIcons";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -187,27 +188,7 @@ const Header = () => {
             />
           </Search>
           <Box sx={{ flexGrow: 1 }} />
-          <Box sx={{ display: { xs: "none", md: "flex" } }}>
-            <IconButton
-              size="large"
-              aria-label="show 4 new mails"
-              color="inherit"
-            >
-              <Badge badgeContent={4} color="error">
-                <MailIcon />
-              </Badge>
-            </IconButton>
-            <IconButton
-              size="large"
-              aria-label="show 17 new notifications"
-              color="inherit"
-            >
-              <Badge badgeContent={17} color="error">
-                <NotificationsIcon />
-              </Badge>
-            </IconButton>
-            <AvatarDropDownMenu />
-          </Box>
+          <GroupedIcons />
           <Box sx={{ display: { xs: "flex", md: "none" } }}>
             <IconButton
               size="large"
