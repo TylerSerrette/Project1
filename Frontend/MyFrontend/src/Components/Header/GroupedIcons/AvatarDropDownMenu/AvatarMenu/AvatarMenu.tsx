@@ -2,15 +2,15 @@
 import React from "react";
 
 // third-party
-import { PersonAdd, Settings, Logout } from "@mui/icons-material";
+import { Settings, Logout } from "@mui/icons-material";
 import { Menu, MenuItem, Avatar, Divider, ListItemIcon } from "@mui/material";
+import UserSignUpMenuItem from "./UserSignUp/UserSignUpMenuItem/UserSignUpMenuItem";
 
 // local
 
 interface AvatarMenuProps {
   anchorEl: null | HTMLElement;
   open: boolean;
-  // handleClose:(event: {}, reason: "backdropClick" | "escapeKeyDown") => void | React.MouseEventHandler<HTMLDivElement>
   setAnchorEl: (value: React.SetStateAction<HTMLElement | null>) => void;
 }
 
@@ -71,12 +71,7 @@ const AvatarMenu: React.FC<AvatarMenuProps> = (props: AvatarMenuProps) => {
           <Avatar /> My account
         </MenuItem>
         <Divider />
-        <MenuItem onClick={handleClose}>
-          <ListItemIcon>
-            <PersonAdd fontSize="small" />
-          </ListItemIcon>
-          Add another account
-        </MenuItem>
+        <UserSignUpMenuItem handleClose={handleClose} />
         <MenuItem onClick={handleClose}>
           <ListItemIcon>
             <Settings fontSize="small" />

@@ -12,6 +12,8 @@ interface UserAvatarProps {
   avatarProps?: AvatarProps;
 }
 
+//***************** Change this to StandardAvatar*************************
+
 const UserAvatar: React.FC<UserAvatarProps> = (props: UserAvatarProps) => {
   //Props
   const { image, onClick, avatarProps } = props;

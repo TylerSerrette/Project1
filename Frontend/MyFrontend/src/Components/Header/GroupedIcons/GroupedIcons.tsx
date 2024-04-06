@@ -6,7 +6,7 @@ import React from "react";
 // local
 import NotificationIconButtons from "./NotificationIconButtons/NotificationIconButtons";
 import { Box } from "@mui/material";
-import AvatarDropDownMenu from "./Avatar/AvatarDropDownMenu/AvatarDropDownMenu";
+import AvatarDropDownMenu from "./AvatarDropDownMenu/AvatarDropDownMenu";
 
 interface GroupedIconsProps {}
 
