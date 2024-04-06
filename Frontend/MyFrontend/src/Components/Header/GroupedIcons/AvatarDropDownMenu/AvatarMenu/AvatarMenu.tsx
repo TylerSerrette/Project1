@@ -5,18 +5,16 @@ import React from "react";
 import { Settings, Logout } from "@mui/icons-material";
 import { Menu, MenuItem, Avatar, Divider, ListItemIcon } from "@mui/material";
 import UserSignUpMenuItem from "./UserSignUp/UserSignUpMenuItem/UserSignUpMenuItem";
+import { useAvatarDropDownMenu } from "../../AvatarDropDownMenuContext/AvatarDropDownMenuContext";
+import UserSignUp from "./UserSignUp/UserSignUp";
 
 // local
 
-interface AvatarMenuProps {
-  anchorEl: null | HTMLElement;
-  open: boolean;
-  setAnchorEl: (value: React.SetStateAction<HTMLElement | null>) => void;
-}
+interface AvatarMenuProps {}
 
 const AvatarMenu: React.FC<AvatarMenuProps> = (props: AvatarMenuProps) => {
   //Props
-  const { anchorEl, open, setAnchorEl } = props;
+  const { anchorEl, open, setAnchorEl } = useAvatarDropDownMenu();
 
   //Constants
 
@@ -71,7 +69,7 @@ const AvatarMenu: React.FC<AvatarMenuProps> = (props: AvatarMenuProps) => {
           <Avatar /> My account
         </MenuItem>
         <Divider />
-        <UserSignUpMenuItem setAnchorEl={setAnchorEl} />
+        <UserSignUp />
         <MenuItem onClick={handleClose}>
           <ListItemIcon>
             <Settings fontSize="small" />

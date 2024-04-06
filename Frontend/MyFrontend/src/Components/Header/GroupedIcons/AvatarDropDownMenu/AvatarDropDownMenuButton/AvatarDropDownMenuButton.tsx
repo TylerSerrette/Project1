@@ -6,7 +6,7 @@ import { Box, Tooltip, IconButton } from "@mui/material";
 
 // local
 import UserAvatar from "../UserAvatar/UserAvatar";
-import { useAvatarDropDownMenu } from "../AvatarDropDownMenuContext/AvatarDropDownMenuContext";
+import { useAvatarDropDownMenu } from "../../AvatarDropDownMenuContext/AvatarDropDownMenuContext";
 
 interface AvatarDropDownMenuButtonProps {}
 

@@ -1,5 +1,7 @@
 // react
 import React from "react";
+import StandardDialog from "../../../../../../StandardComponents/StandardDialog/StandardDialog";
+import { useAvatarDropDownMenu } from "../../../../AvatarDropDownMenuContext/AvatarDropDownMenuContext";
 
 // third-party
 
@@ -12,12 +14,20 @@ const UserSignUpDialog: React.FC<UserSignUpDialogProps> = (
 ) => {
   //Props
   const {} = props;
+  const { openSignUpDialog, setOpenSignUpDialogTo } = useAvatarDropDownMenu();
 
   //Constants
 
   //States
 
-  return <>Placeholder for UserSignUpDialog Component...</>;
+  return (
+    <>
+      <StandardDialog
+        openDialog={openSignUpDialog}
+        setOpenDialogTo={setOpenSignUpDialogTo}
+      />
+    </>
+  );
 };
 
 export default UserSignUpDialog;

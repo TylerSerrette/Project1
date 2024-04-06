@@ -7,7 +7,7 @@ import React from "react";
 import NotificationIconButtons from "./NotificationIconButtons/NotificationIconButtons";
 import { Box } from "@mui/material";
 import AvatarDropDownMenu from "./AvatarDropDownMenu/AvatarDropDownMenu";
-import AvatarDropDownMenuProvider from "./AvatarDropDownMenu/AvatarDropDownMenuContext/AvatarDropDownMenuContext";
+import AvatarDropDownMenuProvider from "./AvatarDropDownMenuContext/AvatarDropDownMenuContext";
 
 interface GroupedIconsProps {}
 
@@ -23,12 +23,12 @@ const GroupedIcons: React.FC<GroupedIconsProps> = (
 
   return (
     <>
-      <Box sx={{ display: { xs: "none", md: "flex" } }}>
-        <NotificationIconButtons />
-        <AvatarDropDownMenuProvider>
+      <AvatarDropDownMenuProvider>
+        <Box sx={{ display: { xs: "none", md: "flex" } }}>
+          <NotificationIconButtons />
           <AvatarDropDownMenu />
-        </AvatarDropDownMenuProvider>
-      </Box>
+        </Box>
+      </AvatarDropDownMenuProvider>
     </>
   );
 };

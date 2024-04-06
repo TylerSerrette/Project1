@@ -30,7 +30,8 @@ export const AvatarDropDownMenuContext =
 
 const AvatarDropDownMenuProvider = (props: any) => {
   //States
-  const [openSignUpDialog, setOpenSignUpDialogTo] = React.useState(false);
+  const [openSignUpDialog, setOpenSignUpDialogTo] =
+    React.useState<boolean>(false);
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
 
   // Open state for the dropdown menu

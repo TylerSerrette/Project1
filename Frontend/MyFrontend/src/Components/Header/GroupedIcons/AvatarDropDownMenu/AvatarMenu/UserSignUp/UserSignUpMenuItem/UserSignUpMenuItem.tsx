@@ -1,27 +1,28 @@
 // react
 import { PersonAdd } from "@mui/icons-material";
 import { MenuItem, ListItemIcon } from "@mui/material";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import StandardDialog from "../../../../../../StandardComponents/StandardDialog/StandardDialog";
+import { useAvatarDropDownMenu } from "../../../../AvatarDropDownMenuContext/AvatarDropDownMenuContext";
 
 // third-party
 
 // local
 
-interface UserSignUpMenuItemProps {
-  setAnchorEl: (value: React.SetStateAction<HTMLElement | null>) => void;
-}
+interface UserSignUpMenuItemProps {}
 
 const UserSignUpMenuItem: React.FC<UserSignUpMenuItemProps> = (
   props: UserSignUpMenuItemProps
 ) => {
   //Props
-  const { setAnchorEl } = props;
+  const {} = props;
 
   //Constants
 
   //States
-  const [openSignUpDialog, setOpenSignUpDialogTo] = useState<boolean>(false);
+  // const [openSignUpDialog, setOpenSignUpDialogTo] = useState<boolean>(AvatarDrop);
+  const { openSignUpDialog, setOpenSignUpDialogTo, setAnchorEl } =
+    useAvatarDropDownMenu();
 
   //move to context
   const handleClose = () => {
@@ -30,9 +31,13 @@ const UserSignUpMenuItem: React.FC<UserSignUpMenuItemProps> = (
 
   //move to context
   const handleClick = () => {
-    handleClose;
+    // handleClose;
     setOpenSignUpDialogTo(true);
   };
+
+  useEffect(() => {
+    console.log("openSignUpDialog: ", openSignUpDialog);
+  }, [openSignUpDialog]);
 
   return (
     <>
@@ -42,10 +47,6 @@ const UserSignUpMenuItem: React.FC<UserSignUpMenuItemProps> = (
         </ListItemIcon>
         Sign up
       </MenuItem>
-      <StandardDialog
-        openDialog={openSignUpDialog}
-        setOpenDialogTo={setOpenSignUpDialogTo}
-      />
     </>
   );
 };
