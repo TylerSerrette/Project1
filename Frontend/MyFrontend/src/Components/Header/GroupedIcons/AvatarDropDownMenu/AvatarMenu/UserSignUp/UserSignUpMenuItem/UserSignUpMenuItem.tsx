@@ -9,28 +9,34 @@ import StandardDialog from "../../../../../../StandardComponents/StandardDialog/
 // local
 
 interface UserSignUpMenuItemProps {
-  handleClose: () => void;
+  setAnchorEl: (value: React.SetStateAction<HTMLElement | null>) => void;
 }
 
 const UserSignUpMenuItem: React.FC<UserSignUpMenuItemProps> = (
   props: UserSignUpMenuItemProps
 ) => {
   //Props
-  const { handleClose } = props;
+  const { setAnchorEl } = props;
 
   //Constants
 
   //States
   const [openSignUpDialog, setOpenSignUpDialogTo] = useState<boolean>(false);
 
+  //move to context
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  //move to context
+  const handleClick = () => {
+    handleClose;
+    setOpenSignUpDialogTo(true);
+  };
+
   return (
     <>
-      <MenuItem
-        onClick={() => {
-          handleClose;
-          setOpenSignUpDialogTo(true);
-        }}
-      >
+      <MenuItem onClick={handleClick}>
         <ListItemIcon>
           <PersonAdd fontSize="small" />
         </ListItemIcon>

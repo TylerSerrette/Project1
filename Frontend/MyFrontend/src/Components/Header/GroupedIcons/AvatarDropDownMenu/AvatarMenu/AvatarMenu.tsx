@@ -71,7 +71,7 @@ const AvatarMenu: React.FC<AvatarMenuProps> = (props: AvatarMenuProps) => {
           <Avatar /> My account
         </MenuItem>
         <Divider />
-        <UserSignUpMenuItem handleClose={handleClose} />
+        <UserSignUpMenuItem setAnchorEl={setAnchorEl} />
         <MenuItem onClick={handleClose}>
           <ListItemIcon>
             <Settings fontSize="small" />

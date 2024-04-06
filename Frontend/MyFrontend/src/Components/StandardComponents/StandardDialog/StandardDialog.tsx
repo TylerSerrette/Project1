@@ -30,9 +30,9 @@ const StandardDialog: React.FC<StandardDialogProps> = (
   // States
 
   // Functions
-  const handleOpen = () => {
-    setOpenDialogTo(true);
-  };
+  //   const handleOpen = () => {
+  //     setOpenDialogTo(true);
+  //   };
   const handleClose = () => {
     setOpenDialogTo(false);
   };

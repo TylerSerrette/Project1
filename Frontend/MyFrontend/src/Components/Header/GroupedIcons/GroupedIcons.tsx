@@ -7,6 +7,7 @@ import React from "react";
 import NotificationIconButtons from "./NotificationIconButtons/NotificationIconButtons";
 import { Box } from "@mui/material";
 import AvatarDropDownMenu from "./AvatarDropDownMenu/AvatarDropDownMenu";
+import AvatarDropDownMenuProvider from "./AvatarDropDownMenu/AvatarDropDownMenuContext/AvatarDropDownMenuContext";
 
 interface GroupedIconsProps {}
 
@@ -24,7 +25,9 @@ const GroupedIcons: React.FC<GroupedIconsProps> = (
     <>
       <Box sx={{ display: { xs: "none", md: "flex" } }}>
         <NotificationIconButtons />
-        <AvatarDropDownMenu />
+        <AvatarDropDownMenuProvider>
+          <AvatarDropDownMenu />
+        </AvatarDropDownMenuProvider>
       </Box>
     </>
   );

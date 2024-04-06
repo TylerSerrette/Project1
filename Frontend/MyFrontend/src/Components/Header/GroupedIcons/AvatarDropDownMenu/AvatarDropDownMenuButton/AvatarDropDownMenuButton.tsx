@@ -6,17 +6,17 @@ import { Box, Tooltip, IconButton } from "@mui/material";
 
 // local
 import UserAvatar from "../UserAvatar/UserAvatar";
+import { useAvatarDropDownMenu } from "../AvatarDropDownMenuContext/AvatarDropDownMenuContext";
 
-interface AvatarDropDownMenuButtonProps {
-  handleClick: React.MouseEventHandler<HTMLButtonElement>;
-  open: boolean;
-}
+interface AvatarDropDownMenuButtonProps {}
 
 const AvatarDropDownMenuButton: React.FC<AvatarDropDownMenuButtonProps> = (
   props: AvatarDropDownMenuButtonProps
 ) => {
   //Props
-  const { handleClick, open } = props;
+  const {} = props;
+
+  const { open, handleClick } = useAvatarDropDownMenu();
 
   //Constants
 
