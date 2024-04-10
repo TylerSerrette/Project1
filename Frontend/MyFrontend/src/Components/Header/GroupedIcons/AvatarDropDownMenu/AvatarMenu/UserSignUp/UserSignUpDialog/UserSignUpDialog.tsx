@@ -15,40 +15,26 @@ const UserSignUpDialog: React.FC<UserSignUpDialogProps> = (
 ) => {
   //Props
   const {} = props;
-  // const { openSignUpDialog, setOpenSignUpDialogTo } = useAvatarDropDownMenu();
+  const { openSignUpDialog, setOpenSignUpDialogTo } = useAvatarDropDownMenu();
 
   //Constants
 
   //States
 
-  const handleSubmit = () => {
-    console.log("Sign Up");
-  };
-
   return (
-    // <>
-    //   {/* <StandardDialog
-    //     openDialog={openSignUpDialog}
-    //     setOpenDialogTo={setOpenSignUpDialogTo}
-    //     title="Sign Up"
-    //     contentText="Sign up to create an account"
-    //     content={
-    //       <>
-    //         <UserSignUpForm handleSubmit={handleSubmit} />
-    //       </>
-    //     }
-    //     primaryButton={{
-    //       text: "Sign Up",
-    //       type: "submit",
-    //       onClick: () => handleSubmit(),
-    //     }}
-    //     cancelButton={{
-    //       text: "Cancel",
-    //       onClick: () => setOpenSignUpDialogTo(false),
-    //     }}
-    //   /> */}
-    // </>
-    <></>
+    <>
+      <StandardDialog
+        openDialog={openSignUpDialog}
+        setOpenDialogTo={setOpenSignUpDialogTo}
+        title="Sign Up"
+        contentText="Sign up to create an account"
+        content={
+          <>
+            <UserSignUpForm />
+          </>
+        }
+      />
+    </>
   );
 };
 

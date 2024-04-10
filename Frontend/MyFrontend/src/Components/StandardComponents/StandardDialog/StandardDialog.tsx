@@ -8,6 +8,8 @@ import {
   DialogActions,
   Button,
   Box,
+  DialogContentProps,
+  DialogProps,
 } from "@mui/material";
 import React, { useState } from "react";
 
@@ -42,6 +44,7 @@ interface StandardDialogProps {
       onClick?: () => void;
     }
   ];
+  dialogProps?: DialogProps;
 }
 
 const StandardDialog: React.FC<StandardDialogProps> = (
@@ -58,6 +61,7 @@ const StandardDialog: React.FC<StandardDialogProps> = (
     primaryButton,
     deleteButton,
     cancelButton,
+    dialogProps,
   } = props;
 
   // Constants
@@ -80,7 +84,7 @@ const StandardDialog: React.FC<StandardDialogProps> = (
     <React.Fragment>
       <Dialog open={openDialog}>
         <DialogTitle>{title}</DialogTitle>
-        <DialogContent>
+        <DialogContent {...dialogProps}>
           <DialogContentText>{contentText}</DialogContentText>
           {content}
         </DialogContent>

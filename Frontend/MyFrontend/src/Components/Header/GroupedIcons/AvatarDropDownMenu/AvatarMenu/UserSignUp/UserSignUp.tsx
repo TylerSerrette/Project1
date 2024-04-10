@@ -21,8 +21,8 @@ const UserSignUp: React.FC<UserSignUpProps> = (props: UserSignUpProps) => {
   return (
     <>
       <UserSignUpMenuItem />
-      {/* <UserSignUpDialog /> */}
-      <UserSignUpForm />
+      <UserSignUpDialog />
+      {/* <UserSignUpForm /> */}
     </>
   );
 };
