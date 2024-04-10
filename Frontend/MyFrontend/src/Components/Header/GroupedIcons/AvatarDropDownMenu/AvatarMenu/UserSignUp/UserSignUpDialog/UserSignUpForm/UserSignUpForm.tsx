@@ -4,9 +4,8 @@ import React from "react";
 // third-party
 import { Formik, useFormik } from "formik";
 import * as Yup from "yup";
-import { Box, Button, Paper, TextField } from "@mui/material";
-import StandardDialog from "../../../../../../../StandardComponents/StandardDialog/StandardDialog";
-import { useAvatarDropDownMenu } from "../../../../../AvatarDropDownMenuContext/AvatarDropDownMenuContext";
+import { Box, Button, TextField } from "@mui/material";
+import axios from "axios";
 
 // local
 
@@ -39,8 +38,13 @@ const UserSignUpForm: React.FC<UserSignUpFormProps> = (
         .oneOf([Yup.ref("password"), undefined], "Passwords must match")
         .required("Required"),
     }),
+
     onSubmit: (values) => {
-      console.log("Formik Values", values);
+      axios
+        .post("http://localhost:5000/api/users/create_users", values)
+        .then((res) => {
+          console.log(res);
+        });
     },
   });
 

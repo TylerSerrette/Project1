@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 import Users
 
 class UserAdmin(admin.ModelAdmin):
-    model = User
+    model = Users
 
 # Register your models here.
 
