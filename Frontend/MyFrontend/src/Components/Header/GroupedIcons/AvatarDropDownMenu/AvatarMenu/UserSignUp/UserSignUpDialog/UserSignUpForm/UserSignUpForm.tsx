@@ -6,6 +6,7 @@ import { Formik, useFormik } from "formik";
 import * as Yup from "yup";
 import { Box, Button, TextField } from "@mui/material";
 import axios from "axios";
+import { useAvatarDropDownMenu } from "../../../../../AvatarDropDownMenuContext/AvatarDropDownMenuContext";
 
 // local
 
@@ -14,7 +15,7 @@ interface UserSignUpFormProps {}
 const UserSignUpForm: React.FC<UserSignUpFormProps> = (
   props: UserSignUpFormProps
 ) => {
-  // const { openSignUpDialog, setOpenSignUpDialogTo } = useAvatarDropDownMenu();
+  const { setOpenSignUpDialogTo } = useAvatarDropDownMenu();
 
   //Props
   const {} = props;
@@ -26,6 +27,7 @@ const UserSignUpForm: React.FC<UserSignUpFormProps> = (
       firstName: "",
       lastName: "",
       email: "",
+      username: "",
       password: "",
       confirmPassword: "",
     },
@@ -33,6 +35,7 @@ const UserSignUpForm: React.FC<UserSignUpFormProps> = (
       firstName: Yup.string().required("Required"),
       lastName: Yup.string().required("Required"),
       email: Yup.string().email("Invalid email address").required("Required"),
+      username: Yup.string().required("Required"),
       password: Yup.string().required("Required"),
       confirmPassword: Yup.string()
         .oneOf([Yup.ref("password"), undefined], "Passwords must match")
@@ -40,11 +43,11 @@ const UserSignUpForm: React.FC<UserSignUpFormProps> = (
     }),
 
     onSubmit: (values) => {
-      axios
-        .post("http://localhost:5000/api/users/create_users", values)
-        .then((res) => {
-          console.log(res);
-        });
+      const url = "http://127.0.0.1:8000/Users/api/create_user/";
+      axios.post(url, values).then((res) => {
+        console.log(res);
+      });
+      setOpenSignUpDialogTo(false);
     },
   });
 
@@ -94,6 +97,21 @@ const UserSignUpForm: React.FC<UserSignUpFormProps> = (
           onBlur={formik.handleBlur}
           value={formik.values.email}
           label="Email"
+          fullWidth
+          variant="standard"
+          sx={{ marginBottom: "1rem" }}
+        />
+        <TextField
+          id="username"
+          error={formik.touched.username && Boolean(formik.errors.username)}
+          helperText={formik.touched.username && formik.errors.username}
+          name="username"
+          type="text"
+          placeholder="Username"
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+          value={formik.values.username}
+          label="Username"
           fullWidth
           variant="standard"
           sx={{ marginBottom: "1rem" }}

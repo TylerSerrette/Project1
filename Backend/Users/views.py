@@ -3,7 +3,7 @@ from django.shortcuts import render
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from .serializers import UserSerializer
+from Users.serializer import UserSerializer
 from rest_framework.authtoken.views import ObtainAuthToken
 from rest_framework.authtoken.models import Token
 from django.contrib.auth import authenticate
@@ -35,4 +35,4 @@ class CustomAuthToken(ObtainAuthToken):
 
 
 
-user = authenticate(username=username, password=password)
+# user = authenticate(username=username, password=password)
