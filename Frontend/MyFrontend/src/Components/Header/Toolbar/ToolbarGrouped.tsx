@@ -6,6 +6,7 @@ import Toolbar from "@mui/material/Toolbar";
 import GroupedMenuSearch from "../GroupedMenuSearch/GroupedMenuSearch";
 import { Box } from "@mui/material";
 import GroupedIcons from "../GroupedIcons/GroupedIcons";
+import AvatarDropDownMenuProvider from "../GroupedIcons/AvatarDropDownMenuContext/AvatarDropDownMenuContext";
 
 // local
 
@@ -21,11 +22,13 @@ const ToolbarGrouped: React.FC<ToolbarProps> = (props: ToolbarProps) => {
 
   return (
     <>
-      <Toolbar>
-        <GroupedMenuSearch />
-        <Box sx={{ flexGrow: 1 }} />
-        <GroupedIcons />
-      </Toolbar>
+      <AvatarDropDownMenuProvider>
+        <Toolbar>
+          <GroupedMenuSearch />
+          <Box sx={{ flexGrow: 1 }} />
+          <GroupedIcons />
+        </Toolbar>
+      </AvatarDropDownMenuProvider>
     </>
   );
 };

@@ -7,6 +7,7 @@ import {
   TextField,
   DialogActions,
   Button,
+  Box,
 } from "@mui/material";
 import React, { useState } from "react";
 
@@ -17,62 +18,86 @@ import React, { useState } from "react";
 interface StandardDialogProps {
   openDialog: boolean;
   setOpenDialogTo: React.Dispatch<React.SetStateAction<boolean>>;
+  title: string;
+  content?: React.ReactNode;
+  contentText?: string;
+  actions?: React.ReactNode;
+  primaryButton?: {
+    text: string;
+    type?: "submit" | "button";
+    onClick?: () => void;
+  };
+  deleteButton?: {
+    text: string;
+    onClick: () => void;
+  };
+  cancelButton?: {
+    text: string;
+    onClick: () => void;
+  };
+  formButtons?: [
+    {
+      text: string;
+      type?: "submit" | "button";
+      onClick?: () => void;
+    }
+  ];
 }
 
 const StandardDialog: React.FC<StandardDialogProps> = (
   props: StandardDialogProps
 ) => {
   // Props
-  const { openDialog, setOpenDialogTo } = props;
+  const {
+    openDialog,
+    setOpenDialogTo,
+    title,
+    content,
+    contentText,
+    actions,
+    primaryButton,
+    deleteButton,
+    cancelButton,
+  } = props;
 
   // Constants
 
   // States
 
   // Functions
-  //   const handleOpen = () => {
-  //     setOpenDialogTo(true);
-  //   };
+  const handleOpen = () => {
+    setOpenDialogTo(true);
+  };
+
   const handleClose = () => {
+    if (cancelButton) {
+      cancelButton.onClick();
+    }
     setOpenDialogTo(false);
   };
 
   return (
     <React.Fragment>
-      <Dialog
-        open={openDialog}
-        PaperProps={{
-          component: "form",
-          onSubmit: (event: React.FormEvent<HTMLFormElement>) => {
-            event.preventDefault();
-            const formData = new FormData(event.currentTarget);
-            const formJson = Object.fromEntries((formData as any).entries());
-            const email = formJson.email;
-            console.log(email);
-          },
-        }}
-      >
-        <DialogTitle>Subscribe</DialogTitle>
+      <Dialog open={openDialog}>
+        <DialogTitle>{title}</DialogTitle>
         <DialogContent>
-          <DialogContentText>
-            To subscribe to this website, please enter your email address here.
-            We will send updates occasionally.
-          </DialogContentText>
-          <TextField
-            autoFocus
-            required
-            margin="dense"
-            id="name"
-            name="email"
-            label="Email Address"
-            type="email"
-            fullWidth
-            variant="standard"
-          />
+          <DialogContentText>{contentText}</DialogContentText>
+          {content}
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose}>Cancel</Button>
-          <Button type="submit">Subscribe</Button>
+          {deleteButton && (
+            <Button onClick={deleteButton.onClick}>{deleteButton.text}</Button>
+          )}
+          <Box flexGrow={1} />
+          {actions}
+          {cancelButton && (
+            <Button onClick={handleClose}>{cancelButton.text}</Button>
+          )}
+          {primaryButton && (
+            <Button type={primaryButton.type} onClick={primaryButton.onClick}>
+              {primaryButton.text}
+            </Button>
+          )}
         </DialogActions>
       </Dialog>
     </React.Fragment>

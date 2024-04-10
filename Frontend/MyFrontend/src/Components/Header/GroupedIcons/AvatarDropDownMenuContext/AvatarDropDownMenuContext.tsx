@@ -1,5 +1,5 @@
 // react
-import React, { createContext, useContext } from "react";
+import React, { createContext, useContext, useEffect } from "react";
 
 // third-party
 
@@ -49,6 +49,15 @@ const AvatarDropDownMenuProvider = (props: any) => {
   const handleCloseSignUpDialog = () => {
     setOpenSignUpDialogTo(false);
   };
+
+  // Close the dropdown menu when the sign up dialog is closed.
+  // Can't figure out why the dialog keeps closing when signup is clicked.
+  // It will stay open if I reopen the drop down menu. This is "temporary" fix.
+  useEffect(() => {
+    if (!openSignUpDialog) {
+      setAnchorEl(null);
+    }
+  }, [openSignUpDialog]);
 
   return (
     <AvatarDropDownMenuContext.Provider

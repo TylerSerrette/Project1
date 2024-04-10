@@ -20,28 +20,11 @@ const UserSignUpMenuItem: React.FC<UserSignUpMenuItemProps> = (
   //Constants
 
   //States
-  // const [openSignUpDialog, setOpenSignUpDialogTo] = useState<boolean>(AvatarDrop);
-  const { openSignUpDialog, setOpenSignUpDialogTo, setAnchorEl } =
-    useAvatarDropDownMenu();
-
-  //move to context
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
-
-  //move to context
-  const handleClick = () => {
-    // handleClose;
-    setOpenSignUpDialogTo(true);
-  };
-
-  useEffect(() => {
-    console.log("openSignUpDialog: ", openSignUpDialog);
-  }, [openSignUpDialog]);
+  const { openSignUpDialog, setOpenSignUpDialogTo } = useAvatarDropDownMenu();
 
   return (
     <>
-      <MenuItem onClick={handleClick}>
+      <MenuItem onClick={() => setOpenSignUpDialogTo(true)}>
         <ListItemIcon>
           <PersonAdd fontSize="small" />
         </ListItemIcon>

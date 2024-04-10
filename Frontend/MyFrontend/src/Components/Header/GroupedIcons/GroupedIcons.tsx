@@ -23,12 +23,12 @@ const GroupedIcons: React.FC<GroupedIconsProps> = (
 
   return (
     <>
-      <AvatarDropDownMenuProvider>
-        <Box sx={{ display: { xs: "none", md: "flex" } }}>
-          <NotificationIconButtons />
-          <AvatarDropDownMenu />
-        </Box>
-      </AvatarDropDownMenuProvider>
+      {/* <AvatarDropDownMenuProvider> */}
+      <Box sx={{ display: { xs: "none", md: "flex" } }}>
+        <NotificationIconButtons />
+        <AvatarDropDownMenu />
+      </Box>
+      {/* </AvatarDropDownMenuProvider> */}
     </>
   );
 };

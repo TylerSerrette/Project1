@@ -4,7 +4,6 @@ import React from "react";
 // third-party
 import { Settings, Logout } from "@mui/icons-material";
 import { Menu, MenuItem, Avatar, Divider, ListItemIcon } from "@mui/material";
-import UserSignUpMenuItem from "./UserSignUp/UserSignUpMenuItem/UserSignUpMenuItem";
 import { useAvatarDropDownMenu } from "../../AvatarDropDownMenuContext/AvatarDropDownMenuContext";
 import UserSignUp from "./UserSignUp/UserSignUp";
 
@@ -31,8 +30,8 @@ const AvatarMenu: React.FC<AvatarMenuProps> = (props: AvatarMenuProps) => {
         anchorEl={anchorEl}
         id="account-menu"
         open={open}
-        onClose={handleClose}
-        onClick={handleClose}
+        // onClose={handleClose}
+        // onClick={handleClose}
         PaperProps={{
           elevation: 0,
           sx: {

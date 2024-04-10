@@ -6,6 +6,7 @@ import React from "react";
 // local
 import UserSignUpMenuItem from "./UserSignUpMenuItem/UserSignUpMenuItem";
 import UserSignUpDialog from "./UserSignUpDialog/UserSignUpDialog";
+import UserSignUpForm from "./UserSignUpDialog/UserSignUpForm/UserSignUpForm";
 
 interface UserSignUpProps {}
 
@@ -20,7 +21,8 @@ const UserSignUp: React.FC<UserSignUpProps> = (props: UserSignUpProps) => {
   return (
     <>
       <UserSignUpMenuItem />
-      <UserSignUpDialog />
+      {/* <UserSignUpDialog /> */}
+      <UserSignUpForm />
     </>
   );
 };
