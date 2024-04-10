@@ -152,7 +152,7 @@ const UserSignUpForm: React.FC<UserSignUpFormProps> = (
           sx={{ marginBottom: "1rem" }}
         />
         <Box display={"flex"} justifyContent={"right"}>
-          <Button>Cancel</Button>
+          <Button onClick={() => setOpenSignUpDialogTo(false)}>Cancel</Button>
           <Button sx={{ ml: "5px" }} type="submit" variant="contained">
             Sign Up
           </Button>

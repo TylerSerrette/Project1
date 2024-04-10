@@ -6,6 +6,7 @@ import { Settings, Logout } from "@mui/icons-material";
 import { Menu, MenuItem, Avatar, Divider, ListItemIcon } from "@mui/material";
 import { useAvatarDropDownMenu } from "../../AvatarDropDownMenuContext/AvatarDropDownMenuContext";
 import UserSignUp from "./UserSignUp/UserSignUp";
+import UserLogin from "./UserLogin/UserLogin";
 
 // local
 
@@ -61,15 +62,16 @@ const AvatarMenu: React.FC<AvatarMenuProps> = (props: AvatarMenuProps) => {
         transformOrigin={{ horizontal: "right", vertical: "top" }}
         anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
       >
-        <MenuItem onClick={handleClose}>
+        {/* <MenuItem onClick={handleClose}>
           <Avatar /> Profile
         </MenuItem>
         <MenuItem onClick={handleClose}>
           <Avatar /> My account
         </MenuItem>
-        <Divider />
+        <Divider /> */}
+        <UserLogin />
         <UserSignUp />
-        <MenuItem onClick={handleClose}>
+        {/* <MenuItem onClick={handleClose}>
           <ListItemIcon>
             <Settings fontSize="small" />
           </ListItemIcon>
@@ -80,7 +82,7 @@ const AvatarMenu: React.FC<AvatarMenuProps> = (props: AvatarMenuProps) => {
             <Logout fontSize="small" />
           </ListItemIcon>
           Logout
-        </MenuItem>
+        </MenuItem> */}
       </Menu>
     </>
   );

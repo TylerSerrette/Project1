@@ -1,13 +1,12 @@
 // react
-import { PersonAdd } from "@mui/icons-material";
-import { MenuItem, ListItemIcon } from "@mui/material";
-import React, { useEffect, useState } from "react";
-import StandardDialog from "../../../../../../StandardComponents/StandardDialog/StandardDialog";
-import { useAvatarDropDownMenu } from "../../../../AvatarDropDownMenuContext/AvatarDropDownMenuContext";
+import React from "react";
 
 // third-party
+import { PersonAdd } from "@mui/icons-material";
+import { MenuItem, ListItemIcon } from "@mui/material";
 
 // local
+import { useAvatarDropDownMenu } from "../../../../AvatarDropDownMenuContext/AvatarDropDownMenuContext";
 
 interface UserSignUpMenuItemProps {}
 
@@ -20,7 +19,7 @@ const UserSignUpMenuItem: React.FC<UserSignUpMenuItemProps> = (
   //Constants
 
   //States
-  const { openSignUpDialog, setOpenSignUpDialogTo } = useAvatarDropDownMenu();
+  const { setOpenSignUpDialogTo } = useAvatarDropDownMenu();
 
   return (
     <>

@@ -7,6 +7,7 @@ import React, { createContext, useContext, useEffect } from "react";
 
 export type AvatarDropDownMenuContextProps = {
   openSignUpDialog: boolean;
+  openLoginDialog: boolean;
   anchorEl: null | HTMLElement;
   open: boolean;
   handleOpenSignUpDialog: () => void;
@@ -14,11 +15,13 @@ export type AvatarDropDownMenuContextProps = {
   handleCloseSignUpDialog: () => void;
   setAnchorEl: React.Dispatch<React.SetStateAction<null | HTMLElement>>;
   setOpenSignUpDialogTo: React.Dispatch<React.SetStateAction<boolean>>;
+  setOpenLoginDialogTo: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 export const AvatarDropDownMenuContext =
   createContext<AvatarDropDownMenuContextProps>({
     openSignUpDialog: false,
+    openLoginDialog: false,
     anchorEl: null,
     open: false,
     handleOpenSignUpDialog: () => {},
@@ -26,11 +29,14 @@ export const AvatarDropDownMenuContext =
     handleCloseSignUpDialog: () => {},
     setAnchorEl: () => {},
     setOpenSignUpDialogTo: () => {},
+    setOpenLoginDialogTo: () => {},
   });
 
 const AvatarDropDownMenuProvider = (props: any) => {
   //States
   const [openSignUpDialog, setOpenSignUpDialogTo] =
+    React.useState<boolean>(false);
+  const [openLoginDialog, setOpenLoginDialogTo] =
     React.useState<boolean>(false);
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
 
@@ -64,6 +70,8 @@ const AvatarDropDownMenuProvider = (props: any) => {
       value={{
         anchorEl,
         openSignUpDialog,
+        setOpenLoginDialogTo,
+        openLoginDialog,
         open,
         handleOpenSignUpDialog,
         handleClick,
@@ -80,6 +88,7 @@ const AvatarDropDownMenuProvider = (props: any) => {
 export const useAvatarDropDownMenu = () => {
   const {
     openSignUpDialog,
+    openLoginDialog,
     anchorEl,
     open,
     handleOpenSignUpDialog,
@@ -87,10 +96,12 @@ export const useAvatarDropDownMenu = () => {
     handleCloseSignUpDialog,
     setAnchorEl,
     setOpenSignUpDialogTo,
+    setOpenLoginDialogTo,
   } = React.useContext(AvatarDropDownMenuContext);
 
   return {
     openSignUpDialog,
+    openLoginDialog,
     anchorEl,
     open,
     handleOpenSignUpDialog,
@@ -98,6 +109,7 @@ export const useAvatarDropDownMenu = () => {
     handleCloseSignUpDialog,
     setAnchorEl,
     setOpenSignUpDialogTo,
+    setOpenLoginDialogTo,
   };
 };
 
