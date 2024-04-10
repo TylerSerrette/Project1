@@ -38,9 +38,24 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'myapp',
     'corsheaders',
     'rest_framework.authtoken',
+    'myapp',
+    'Users',
+    'Profiles',
+    'Campaign', 
+    'Character', 
+    # 'Items', # coming soon
+    # 'Items', # coming soon
+    # 'Locations', # coming soon
+    # 'Monsters', # coming soon
+    # 'Spells', # coming soon
+    # 'Weapons',  # coming soon
+    # 'Armors', # coming soon
+    # 'Skills', # coming soon
+    # 'Feats', # coming soon
+    # 'Languages', # coming soon
+
 ]
 
 MIDDLEWARE = [
